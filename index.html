@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Задание 1</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div id="app">
+		<div class="description">
+			<h2 class="description__title">{{ title }}</h2>
+			<p class="description__text">Создать страницу с двумя полями ввода и кнопкой. По нажатию кнопки скрипт должен вывести значение суммы введенных чисел. Значения по умолчанию для полей: 0.1 и 0.2.</p>
+		</div>
+		<div class="container">
+			<form v-bind:class="classForm" v-show="formIsShow" v-on:submit.prevent="getAnswer">
+				<div class="form-field fied-argument">
+					<label for="argument-first">Первое число:</label>
+			 		<input id="argument-first" v-model="valueFirst">
+		 		</div>
+			 	<div class="form-field fied-argument">
+			 		<label for="argument-second">Второе число:</label>
+			 		<input id="argument-second" v-model="valueSecond">
+			 	</div>
+			 	<button class="button button-sum" type="submit" title="Сложить">Сложить</button>
+	 		</form>
+	 		
+	 		<!-- Попап. Вывод результата -->
+	 		<div v-bind:class="classResult" v-show="answerIsShow">
+	 			<p class="modal-result-nema">Результат:</p>
+	 			<p class="modal-result-value">{{ answer }}</p>
+	 			<button class="button button-ok" type="button" title="Ok" v-on:click="okAnswer">Ok</button>
+	 		</div>
+ 		</div>
+	</div>
+
+	<!-- Подключаем vue.js -->
+	<!-- версия для разработки, отображает полезные предупреждения в консоли -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<!-- Подключаем основной файл проекта -->
+	<script src="main.js"></script>
+</body>
+</html>
